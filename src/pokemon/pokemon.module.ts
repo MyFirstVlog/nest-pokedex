@@ -8,10 +8,11 @@ import { Pokemon, PokemonSchema } from './entities/pokemon.entity';
   controllers: [PokemonController],
   providers: [PokemonService],
   imports: [
-    MongooseModule.forFeature([{
-      name: Pokemon.name, //*Extends de document
+    MongooseModule.forFeature([{ //* for feature solo se ejecuta cuando se resuelvan estos eventos asincronos
+      name: Pokemon.name, //*Extends de document el valor de name, no viene de la entidad
       schema: PokemonSchema, //* El pokemons schema que exportamos
     }])
-  ]
+  ],
+  exports: [MongooseModule]
 })
 export class PokemonModule {}
