@@ -35,6 +35,8 @@ export class PokemonService {
 
     const {limit = this.defaultLimit, offset= 0} = paginationDto;
 
+    console.log({limit,offset})
+
     return this.pokemonModel.find()
       .limit(limit)
       .skip(offset)
