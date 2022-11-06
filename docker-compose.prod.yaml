@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  pokedexapp:
+    depends_on: # depende de la base de datos, si no se levante la db, entonces pokedex no lo hace
+      - db
+    build: 
+      context: . # Ubicación
+      dockerfile: Dockerfile
+    image: pokedex-docker # Como quiero que se llame la imagen
+    container_name: pokedexapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}" # Usa del punto .env
+    # working_dir: /var/www/pokedex
+    environment:
+      MONGODB: ${MONGODB}
+      PORT: ${PORT}
+      DEFAULT_LIMIT: ${DEFAULT_LIMIIT}
+    # volumes: si queremos manterner el file systeno aplicacion
+    #   - ./:/var/www/pokedex
+
+  db:
+    image: mongo:5
+    container_name: mongo-poke
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-pokemon
+    # volumes:
+    #   - ./mongo:/data/db
