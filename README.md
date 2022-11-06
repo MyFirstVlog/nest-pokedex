@@ -44,6 +44,18 @@ http://localhost:3000/api/v2/seed
 - MongoDB
 - Nest
 
+# Production Build
+
+1. Create `.env.prod` file
+2. Fill out env variables
+3. Create image
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
+
+4. Si no funciona puede ser por docker desktop desactualizado
+
 # Notas
 
 Heroku redeploy sin cambios en git
