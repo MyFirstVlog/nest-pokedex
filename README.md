@@ -52,3 +52,9 @@ Heroku redeploy sin cambios en git
 git commit --allow-empty -m "trigger heroku desploy"
 git push heroku <master/main>
 ```
+
+Gist para preparar un archivo Dockerfile o generar una imágen
+
+```
+https://gist.github.com/Klerith/e7861738c93712840ab3a38674843490
+```
